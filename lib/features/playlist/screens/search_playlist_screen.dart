@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/constants/dimensions.dart';
 import 'package:music_app/constants/global_variables.dart';
-import 'package:music_app/features/admin/screens/add_song_page.dart';
+
 import 'package:music_app/features/playlist/widgets/playlist_cards.dart';
 import 'package:music_app/features/song/screens/single_song_screen.dart';
 import 'package:music_app/models/playlist_model.dart';
 
-class AdminPlaylistScreen extends StatefulWidget {
+class SearchPlaylistScreen extends StatefulWidget {
   final Playlist playlist;
-  const AdminPlaylistScreen({Key? key, required this.playlist})
+  const SearchPlaylistScreen({Key? key, required this.playlist})
       : super(key: key);
-  static const String routeName = '/adminPlaylistScreen';
+  static const String routeName = '/searchPlaylistScreen';
 
   @override
-  State<AdminPlaylistScreen> createState() => _AdminPlaylistScreenState();
+  State<SearchPlaylistScreen> createState() => _SearchPlaylistScreenState();
 }
 
-class _AdminPlaylistScreenState extends State<AdminPlaylistScreen> {
+class _SearchPlaylistScreenState extends State<SearchPlaylistScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -75,16 +75,6 @@ class _AdminPlaylistScreenState extends State<AdminPlaylistScreen> {
             }, childCount: widget.playlist.song?.length))
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.purpleAccent,
-          tooltip: "Add a products",
-          onPressed: () {
-            Navigator.pushNamed(context, AddSongScreen.routeName,
-                arguments: widget.playlist);
-          },
-          child: const Icon(Icons.add),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }

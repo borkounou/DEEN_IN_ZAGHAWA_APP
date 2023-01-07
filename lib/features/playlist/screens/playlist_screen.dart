@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/commons/bigText.dart';
 import 'package:music_app/constants/dimensions.dart';
+import 'package:music_app/constants/global_variables.dart';
 import 'package:music_app/features/playlist/widgets/playlist_cards.dart';
-import 'package:music_app/features/song/screens/song_screen.dart';
+import 'package:music_app/features/song/screens/single_song_screen.dart';
 import 'package:music_app/models/playlist_model.dart';
 
 class PlaylistScreen extends StatefulWidget {
@@ -18,14 +19,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-            Colors.deepPurple.shade800.withOpacity(0.8),
-            Colors.deepPurple.shade200.withOpacity(0.8),
-          ])),
+      decoration: BoxDecoration(gradient: GlobalVariables.mainGradientColor),
       child: Scaffold(
         body: CustomScrollView(
           slivers: [
@@ -72,10 +66,10 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               ),
               backgroundColor: Colors.transparent,
               pinned: true,
-              expandedHeight: 300,
+              expandedHeight: Dimensions.height30 * 100,
               flexibleSpace: FlexibleSpaceBar(
-                background: Image.asset(
-                  "assets/main_img/askar_1.jpg",
+                background: Image.network(
+                  widget.playlist.imageUrl,
                   width: double.maxFinite,
                   fit: BoxFit.cover,
                 ),
@@ -87,7 +81,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                         (BuildContext context, int index) {
                     return GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, SongScreen.routeName,
+                        Navigator.pushNamed(context, SingleSongScreen.routeName,
                             arguments: widget.playlist.song![index]);
                       },
                       child: ListTile(
@@ -106,11 +100,12 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                         widget.playlist.song != []) {
                       return GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, SongScreen.routeName,
+                          Navigator.pushNamed(
+                              context, SingleSongScreen.routeName,
                               arguments: widget.playlist.song![index]);
                         },
                         child: ListTile(
-                          title: PlaylistCard(
+                          title: PlaylistCardS(
                             songs: widget.playlist.song![index],
                           ),
                         ),

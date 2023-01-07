@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/constants/dimensions.dart';
+import 'package:music_app/features/song/screens/single_song_screen.dart';
 import 'package:music_app/models/song_model.dart';
 
-class PlaylistCard extends StatelessWidget {
+class PlaylistCardS extends StatelessWidget {
   final Song songs;
-  const PlaylistCard({Key? key, required this.songs}) : super(key: key);
+  const PlaylistCardS({Key? key, required this.songs}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class PlaylistCard extends StatelessWidget {
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '${songs.category} songs',
+                  songs.author,
                   maxLines: 2,
                   style: Theme.of(context)
                       .textTheme
@@ -54,7 +55,10 @@ class PlaylistCard extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, SingleSongScreen.routeName,
+                  arguments: songs);
+            },
             icon: const Icon(
               Icons.play_circle,
               color: Colors.white,

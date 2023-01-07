@@ -1,7 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app/constants/global_variables.dart';
-import 'package:music_app/features/home/screens/bottom_bar_page.dart';
+import 'package:music_app/features/home/screens/bottom_bar_home_screen.dart';
 import 'package:music_app/routers.dart';
 import 'package:get/get.dart';
 import 'package:page_transition/page_transition.dart';
@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
         colorScheme: const ColorScheme.light(primary: Colors.transparent),
         appBarTheme: const AppBarTheme(
           elevation: 0,
-          iconTheme: IconThemeData(color: Colors.black),
+          iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
               image: AssetImage('./assets/main_img/music_bg.jpg'),
             ),
           ),
-          nextScreen: const BottomBar(),
+          nextScreen: const BottomBarHomeScreen(),
           duration: 2000,
           pageTransitionType: PageTransitionType.fade),
     );

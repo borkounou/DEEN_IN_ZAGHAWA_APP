@@ -26,12 +26,6 @@ class SingleProduct extends StatelessWidget {
                   fit: BoxFit.cover)),
           width: Dimensions.carouselImageHeight + Dimensions.height30 * 2,
           padding: const EdgeInsets.all(2),
-          // child: Image.asset(
-          //   image,
-          //   fit: BoxFit.cover,
-          //   width: Dimensions.width10 * 20,
-          //   height: Dimensions.height10 * 20,
-          // ),
         ),
       ),
     );

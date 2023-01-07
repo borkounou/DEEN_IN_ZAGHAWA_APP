@@ -3,17 +3,21 @@ import 'package:music_app/features/admin/screens/add_playlist_page.dart';
 import 'package:music_app/features/admin/screens/add_song_page.dart';
 import 'package:music_app/features/admin/screens/adminPlaylistScreen.dart';
 import 'package:music_app/features/home/screens/home_screen.dart';
+import 'package:music_app/features/home/widgets/playlist_card.dart';
+import 'package:music_app/features/playlist/screens/main_playlist_screen.dart';
 import 'package:music_app/features/playlist/screens/playlist_screen.dart';
-import 'package:music_app/features/song/screens/song_screen.dart';
+import 'package:music_app/features/playlist/screens/search_playlist_screen.dart';
+import 'package:music_app/features/song/screens/single_song_screen.dart';
 import 'package:music_app/models/playlist_model.dart';
 import 'package:music_app/models/song_model.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
     case HomeScreen.routeName:
+      var playlist = routeSettings.arguments as Playlist;
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => const HomeScreen(),
+        builder: (_) => HomeScreen(playlist: playlist),
       );
 
     case PlaylistScreen.routeName:
@@ -22,6 +26,21 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => PlaylistScreen(playlist: playlist),
       );
+
+    case SearchPlaylistScreen.routeName:
+      var playlist = routeSettings.arguments as Playlist;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => SearchPlaylistScreen(playlist: playlist),
+      );
+
+    case PlaylistCard.routeName:
+      var playlist = routeSettings.arguments as Playlist;
+      return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (_) => PlaylistCard(
+                playlist: playlist,
+              ));
 
     case AdminPlaylistScreen.routeName:
       var playlist = routeSettings.arguments as Playlist;
@@ -43,11 +62,20 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => const AddPlaylistScreen(),
       );
 
-    case SongScreen.routeName:
+    case SingleSongScreen.routeName:
       var song = routeSettings.arguments as Song;
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => SongScreen(song: song),
+        builder: (_) => SingleSongScreen(song: song),
+      );
+
+    case MainPlaylistScreen.routeName:
+      var playlist = routeSettings.arguments as Playlist;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => MainPlaylistScreen(
+          playlist: playlist,
+        ),
       );
 
     default:
