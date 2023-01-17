@@ -20,6 +20,14 @@ class GlobalVariables {
         Colors.deepPurple.shade200.withOpacity(0.8),
       ]);
 
+  static final metadataGradientColor = LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [
+        Colors.deepPurple.shade200,
+        Colors.deepPurple.shade800,
+      ]);
+
   // rgb(40, 42, 58)
   static const backgroundColor = Color(0xff0A2647);
 

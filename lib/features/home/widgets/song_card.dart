@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app/constants/dimensions.dart';
 import 'package:music_app/features/song/screens/single_song_screen.dart';
@@ -19,14 +20,14 @@ class SongCard extends StatelessWidget {
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            Container(
-              width: Dimensions.screenWidth * 0.45,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radius15),
-                  image: DecorationImage(
-                    image: NetworkImage(song.coverUrl),
-                    fit: BoxFit.cover,
-                  )),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(Dimensions.height10),
+              child: CachedNetworkImage(
+                imageUrl: song.coverUrl,
+                height: Dimensions.height30 * 10,
+                width: Dimensions.screenWidth * 0.45,
+                fit: BoxFit.cover,
+              ),
             ),
             Container(
               height: Dimensions.height50,

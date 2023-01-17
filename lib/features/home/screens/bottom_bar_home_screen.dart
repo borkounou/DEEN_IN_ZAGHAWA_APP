@@ -4,6 +4,9 @@ import 'package:music_app/features/home/widgets/custom_bottom_nav_bar.dart';
 import 'package:music_app/features/search/screens/categories_search.dart';
 
 import '../../../constants/global_variables.dart';
+import '../../onboarding/screens/onboarding_screen.dart';
+import '../../quran/screens/main_quran_screen.dart';
+import '../../quran/screens/surate_detail_screen.dart';
 
 class BottomBarHomeScreen extends StatefulWidget {
   static const String routeName = '/bottom-home';
@@ -18,7 +21,9 @@ class _BottomBarHomeScreenState extends State<BottomBarHomeScreen> {
   List<Widget> pages = [
     const MainHomeScreen(),
     const CategoriesSearch(),
-    const Center(child: Text("Center data")),
+    // OnBoardingScreen(),
+    const MainQuranScreen(),
+    // const SurahDetailBodyView()
     const Center(child: Text("Center data")),
 
     // const AddPlaylistScreen()

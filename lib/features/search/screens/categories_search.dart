@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:music_app/commons/bigText.dart';
 import 'package:music_app/commons/loader.dart';
 import 'package:music_app/commons/smallText.dart';
 import 'package:music_app/constants/dimensions.dart';
+import 'package:music_app/constants/global_variables.dart';
 import 'package:music_app/features/admin/screens/add_song_page.dart';
 import 'package:music_app/features/home/services/home_services.dart';
 import 'package:music_app/features/home/widgets/header_section.dart';
-import 'package:music_app/features/playlist/screens/search_playlist_screen.dart';
 import 'package:music_app/features/search/widgets/search_box.dart';
 import 'package:music_app/models/playlist_model.dart';
+
+import '../../song/screens/multi_song_screen.dart';
 
 class CategoriesSearch extends StatefulWidget {
   const CategoriesSearch({Key? key}) : super(key: key);
@@ -51,14 +52,7 @@ class _CategoriesSearchState extends State<CategoriesSearch> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-            Colors.deepPurple.shade800.withOpacity(0.8),
-            Colors.deepPurple.shade200.withOpacity(0.8),
-          ])),
+      decoration: BoxDecoration(gradient: GlobalVariables.mainGradientColor),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
@@ -81,7 +75,9 @@ class _CategoriesSearchState extends State<CategoriesSearch> {
                 SizedBox(
                   height: Dimensions.height15,
                 ),
-                const SearchBox(),
+                SearchBox(
+                  size: Dimensions.width10,
+                ),
                 SizedBox(
                   height: Dimensions.height15,
                 ),
@@ -112,8 +108,8 @@ class _CategoriesSearchState extends State<CategoriesSearch> {
                                         arguments: playlists![index]);
                                   } else {
                                     Navigator.pushNamed(
-                                        context, SearchPlaylistScreen.routeName,
-                                        arguments: playlists![index]);
+                                        context, MultiSongScreen.routeName,
+                                        arguments: playlists![index].song);
                                   }
                                 },
                                 child: Card(

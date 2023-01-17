@@ -1,5 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 import 'package:music_app/constants/global_variables.dart';
 import 'package:music_app/features/home/screens/bottom_bar_home_screen.dart';
 import 'package:music_app/routers.dart';
@@ -7,7 +8,13 @@ import 'package:get/get.dart';
 import 'package:page_transition/page_transition.dart';
 // taskkill /F /IM "qemu-system-x86_64.exe" /T
 
-void main() {
+Future<void> main() async {
+  await JustAudioBackground.init(
+    androidNotificationChannelId: 'com.ryanheise.bg_demo.channel.audio',
+    androidNotificationChannelName: 'Audio playback',
+    androidNotificationOngoing: true,
+  );
+
   runApp(const MyApp());
 }
 

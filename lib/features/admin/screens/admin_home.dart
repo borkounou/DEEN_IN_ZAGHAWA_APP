@@ -81,7 +81,9 @@ class _AdminHomeState extends State<AdminHome> {
                 SizedBox(
                   height: Dimensions.height15,
                 ),
-                const SearchBox(),
+                SearchBox(
+                  size: Dimensions.width10,
+                ),
                 SizedBox(
                   height: Dimensions.height15,
                 ),

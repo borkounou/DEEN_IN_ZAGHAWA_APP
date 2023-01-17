@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/constants/dimensions.dart';
 
+import '../../search/widgets/search_box.dart';
+
 class DiscoverMusic extends StatelessWidget {
   const DiscoverMusic({Key? key}) : super(key: key);
 
@@ -11,35 +13,23 @@ class DiscoverMusic extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Welcome", style: Theme.of(context).textTheme.bodyLarge),
+          Text("Bienvenue", style: Theme.of(context).textTheme.bodyLarge),
           SizedBox(
             height: Dimensions.height5,
           ),
           Text(
-            "Enjoy your favorite music",
+            "Paix et joie de l'islam par audio",
             style: Theme.of(context)
                 .textTheme
                 .headline6!
-                .copyWith(fontWeight: FontWeight.bold),
+                .copyWith(fontWeight: FontWeight.normal),
           ),
           SizedBox(
             height: Dimensions.height20,
           ),
-          TextFormField(
-            decoration: InputDecoration(
-                isDense: true,
-                filled: true,
-                fillColor: Colors.white,
-                hintText: "Chercher",
-                hintStyle: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(color: Colors.grey.shade400),
-                prefixIcon: Icon(Icons.search, color: Colors.grey.shade400),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide: BorderSide.none)),
-          )
+          SearchBox(
+            size: Dimensions.width5 / 2,
+          ),
         ],
       ),
     );

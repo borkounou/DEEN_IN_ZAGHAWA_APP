@@ -20,14 +20,14 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         Padding(
           padding: EdgeInsets.only(right: Dimensions.width20),
-          child: const HeaderSection(title: "Trending Music"),
+          child: const HeaderSection(title: "Playlist Populaire"),
         ),
         SizedBox(height: Dimensions.height20),
         SizedBox(
           height: Dimensions.screenHeight * 0.27,
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 5,
+              itemCount: widget.playlist.song!.length,
               itemBuilder: (context, index) {
                 return SongCard(song: widget.playlist.song![index]);
               }),

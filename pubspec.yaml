@@ -33,6 +33,11 @@ dependencies:
   flutter_cache_manager: ^3.3.0
   audio_video_progress_bar: ^0.11.0
   cached_network_image: ^3.2.3
+  just_audio_background: ^0.0.1-beta.9
+  audio_service: ^0.18.9
+  flutter_overboard: ^3.1.1
+  smooth_page_indicator: ^1.0.0+2
+  flutter_svg: ^1.1.6
 
 
 dev_dependencies:
