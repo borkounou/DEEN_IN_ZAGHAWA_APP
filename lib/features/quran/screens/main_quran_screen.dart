@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
+import '../../../commons/common_text.dart';
 import 'package:music_app/constants/dimensions.dart';
+import 'package:music_app/models/quran_surah_model.dart';
 import 'package:music_app/constants/global_variables.dart';
 import 'package:music_app/features/home/widgets/app_tabs.dart';
+import 'package:music_app/features/search/widgets/search_box.dart';
 import 'package:music_app/features/home/widgets/tab_var_contents.dart';
 import 'package:music_app/features/search/services/quran_services.dart';
-import 'package:music_app/features/search/widgets/search_box.dart';
-
-import 'package:music_app/models/quran_surah_model.dart';
-
-import '../../../commons/common_text.dart';
 
 class MainQuranScreen extends StatefulWidget {
   static const String routeName = '/mainQuranScreen';
-  const MainQuranScreen({Key? key}) : super(key: key);
+  const MainQuranScreen({super.key});
 
   @override
   State<MainQuranScreen> createState() => _MainQuranScreenState();
@@ -66,7 +64,7 @@ class _MainQuranScreenState extends State<MainQuranScreen>
             SizedBox(height: Dimensions.height20),
             SearchBox(size: Dimensions.height10 / 3),
             SizedBox(height: Dimensions.height20),
-            Container(
+            SizedBox(
               height: Dimensions.height10 * 15.7,
               child: Stack(
                 children: [
@@ -74,7 +72,7 @@ class _MainQuranScreenState extends State<MainQuranScreen>
                     top: 0,
                     left: -Dimensions.width5 * 5,
                     right: 0,
-                    child: Container(
+                    child: SizedBox(
                       height: Dimensions.height10 * 15.7,
                       child: PageView.builder(
                           controller: PageController(viewportFraction: 0.8),

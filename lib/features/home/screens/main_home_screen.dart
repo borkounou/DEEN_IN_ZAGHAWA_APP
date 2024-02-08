@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/commons/loader.dart';
+import '../../../constants/global_variables.dart';
 import 'package:music_app/constants/dimensions.dart';
+import 'package:music_app/models/playlist_model.dart';
 import 'package:music_app/features/home/screens/home_screen.dart';
+import 'package:music_app/features/home/widgets/playlist_card.dart';
 import 'package:music_app/features/home/services/home_services.dart';
 import 'package:music_app/features/home/widgets/custom_app_bar.dart';
 import 'package:music_app/features/home/widgets/discover_music.dart';
 import 'package:music_app/features/home/widgets/header_section.dart';
-import 'package:music_app/features/home/widgets/playlist_card.dart';
-import 'package:music_app/models/playlist_model.dart';
-import '../../../constants/global_variables.dart';
 
 class MainHomeScreen extends StatefulWidget {
   static const String routeName = '/main-home-page';
@@ -56,7 +56,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           //     ],
           //   ),
           // ),
-          appBar: const CustomAppBar(),
+          // appBar:  CustomAppBar(),
           body: playlists == null
               ? const Loader()
               : SingleChildScrollView(

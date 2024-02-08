@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../../../constants/dimensions.dart';
 
-class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
+
+class CustomAppBar extends StatelessWidget {
   const CustomAppBar({Key? key}) : super(key: key);
 
   @override
@@ -24,6 +24,6 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     );
   }
 
-  @override
-  Size get preferredSize => const Size.fromHeight(56);
+  // @override
+  // Size get preferredSize => const Size.fromHeight(56);
 }
